@@ -1,0 +1,42 @@
+generated: '2026-07-20'
+method: derived
+source: https://github.com/21dotco/two1-python/blob/master/two1/server/rest_client.py
+status: historical
+notes: >-
+  Earn.com / 21.co published no OpenAPI. This profile is derived from the
+  first-party two1 client library's REST client, which is the only surviving
+  authoritative description of how the api.21.co API was authenticated. The API
+  is no longer reachable (api.21.co is NXDOMAIN as of 2026-07-20).
+summary:
+  types: [http, custom-signature]
+  api_key_in: []
+  oauth2_flows: []
+  oauth2: false
+  openid_connect: false
+schemes:
+- name: two1-wallet-signature
+  type: custom-signature
+  in: header
+  header: Authorization
+  format: '21 <iso8601-timestamp> <username> <signature>'
+  description: >-
+    Primary scheme. The client signs the concatenation of the request URL, an
+    ISO-8601 timestamp, and the JSON request body with the user's bitcoin
+    wallet key, then sends the signature in the Authorization header alongside
+    the timestamp and username. Effectively a bitcoin-keypair-based HTTP
+    message signature.
+  signed_material: url + timestamp + body
+  sources: [two1/server/rest_client.py]
+- name: basic
+  type: http
+  scheme: basic
+  description: >-
+    HTTP Basic (username/password, base64) used only for the initial login
+    exchange (POST /users/{username}/) before wallet-signature auth takes over.
+  sources: [two1/server/rest_client.py]
+additional_headers:
+- name: User-Agent
+  value: 21/<two1-version>
+- name: From
+  value: <wallet-public-key>@<device-id>
+  description: Binds the request to the caller's wallet public key and device UUID.
