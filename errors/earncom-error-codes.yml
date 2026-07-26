@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: derived
+source: https://github.com/21dotco/two1-python/blob/master/two1/server/rest_client.py
+also: https://github.com/21dotco/two1-python/blob/master/two1/commands/util/exceptions.py
+status: historical
+format: custom-json
+rfc9457: false
+notes: >-
+  Earn.com / 21.co published no error reference and no OpenAPI. This catalog is
+  derived from the error handling in the first-party two1 client library, which
+  is the only surviving description of the api.21.co error surface. It is
+  necessarily partial — only the codes the client special-cased are recoverable.
+envelope:
+  fields: [error, message]
+  example: '{"error": "invalid_login", "message": "Incorrect username or password"}'
+statuses:
+- status: 301
+  meaning: Client version out of date
+  client_behavior: >-
+    Raised as UpdateRequiredError — the server used a redirect, not a 4xx, to
+    force a client upgrade.
+- status: 403
+  meaning: Forbidden — not logged in, or entitlement missing
+  remediation: Run `21 login` and retry.
+- status: 409
+  meaning: Conflict — a username is already associated with this wallet
+  remediation: Run `21 login -u <username>` to log in as the existing user.
+- status: 4xx
+  meaning: Generic client request error
+  client_behavior: Raised as ServerRequestError with the envelope `message`.
+- status: 5xx
+  meaning: Server error
+  client_behavior: >-
+    Raised as ServerRequestError with "You have experienced a server error
+    (%d). We are working to correct the issue."
+error_codes:
+- code: TO100
+  status: 403
+  meaning: 21 Bitcoin Computer hardware required to access this service.
+  action: Acquire a 21 Bitcoin Computer, or contact support if received in error.
+- code: TO200
+  status: 403
+  meaning: 21 Bitcoin Computer hardware required to access this service.
+  action: Acquire a 21 Bitcoin Computer, or contact support if received in error.
+- code: invalid_login
+  status: 403
+  meaning: Incorrect username or password.
+  action: Re-authenticate with valid credentials.
+connection_errors:
+- condition: timeout or connection refused
+  message: 'Error: Cannot connect to 21 servers. Please check your Internet connection.'
+  note: >-
+    As of 2026-07-20 every caller hits this path, because api.21.co no longer
+    resolves in DNS.

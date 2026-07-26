@@ -1,20 +1,93 @@
 aid: earncom
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/earncom.png
 name: Earn.com
-description: Earn.com is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: 'Earn.com was a cryptocurrency startup founded in 2013 as 21e6 and later
+  known as 21 Inc and 21.co, backed by a16z and others, which raised over $116 million.
+  It began as a Bitcoin mining venture selling the 21 Bitcoin Computer, then pivoted
+  to a paid-messaging marketplace where senders paid recipients in cryptocurrency to
+  read and reply to email. Coinbase acquired Earn.com in April 2018 for a reported
+  $120 million, and co-founder Balaji Srinivasan became Coinbase''s first Chief Technology
+  Officer. The standalone Earn.com product was retired and the brand was folded into
+  Coinbase Earn, the learn-and-earn program. As of July 2026 the earn.com domain issues
+  a blanket HTTP 301 redirect for every path to https://www.coinbase.com/earn, and
+  no developer, documentation, or API subdomain resolves. Earn.com therefore has no
+  independent API surface; any remaining API capability lives under Coinbase.'
 url: https://raw.githubusercontent.com/api-evangelist/earncom/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
 x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier-reason: acquired-no-api-surface
+x-status: acquired
+x-acquired-by: Coinbase
+x-acquired-date: '2018-04'
+x-successor: https://www.coinbase.com/earn
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Cryptocurrency
+- Bitcoin
+- Payments
+- Acquired
+- Defunct
+- Messaging
+common:
+- type: Website
+  url: https://earn.com/
+- type: Successor
+  url: https://www.coinbase.com/earn
+- type: DomainSecurity
+  url: security/earncom-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/21dotco
+- type: SourceCode
+  url: https://github.com/21dotco/two1-python
+- type: Packages
+  url: packages/earncom-packages.yml
+- type: SDKs
+  url: packages/earncom-packages.yml
+  name: two1 (Python) — archived
+- type: CLI
+  url: cli/earncom-cli.yml
+  name: 21 CLI — archived
+- type: ChangeLog
+  url: changelog/earncom-changelog.yml
+- type: Lifecycle
+  url: lifecycle/earncom-lifecycle.yml
+- type: Authentication
+  url: authentication/earncom-authentication.yml
+- type: Conventions
+  url: conventions/earncom-conventions.yml
+- type: ErrorCatalog
+  url: errors/earncom-error-codes.yml
+# No pointer emitted for well-known/earncom-well-known.yml: the probe found no
+# discovery documents (every path 301s to Coinbase), so there is no WellKnown
+# catalog to advertise. The artifact is retained as an honest probe record.
+# Deliberately absent, because Earn.com genuinely has none of these any more:
+# StatusPage, Deprecation, Idempotency, Security, Compliance, TrustCenter,
+# MCPServer, AgentSkill, AsyncAPI, Webhooks, Sandbox, Postman, Pricing, SignUp,
+# TermsOfService, PrivacyPolicy, DeveloperPortal, Documentation, APIReference.
 apis: []
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 9
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

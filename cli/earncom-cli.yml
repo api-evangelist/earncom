@@ -1,0 +1,92 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/21dotco/two1-python
+name: '21'
+description: >-
+  The 21 command line interface, shipped inside the two1 Python package. Manages
+  a bitcoin HD wallet, mining and microtask earnings, micropayment channels, and
+  publishing/selling machine-payable endpoints on the 21 Marketplace.
+status: archived
+service_status: discontinued
+notes: >-
+  The CLI is still installable but non-functional: its backend hosts
+  (api.21.co, blockchain.21.co, logger.21.co, grid.21.co) no longer resolve in
+  DNS as of 2026-07-20.
+install:
+- method: pip
+  command: pip3 install two1
+- method: install-script
+  command: curl https://21.co | sh
+  status: dead
+  note: 21.co no longer resolves
+- method: docker
+  command: docker pull 21dotco/two1
+requires: python3.4+
+entrypoint: 21
+help_command: 21 help
+commands:
+- group: wallet-and-balance
+  commands:
+  - name: status
+    description: Show 21 account and wallet status.
+  - name: wallet
+    description: Manage the built-in bitcoin HD wallet.
+  - name: send
+    description: Send bitcoin to another address.
+  - name: flush
+    description: Flush the off-chain balance to the blockchain.
+  - name: faucet
+    description: Request bitcoin from the 21 faucet.
+- group: earning
+  commands:
+  - name: earn
+    description: Earn bitcoin via microtasks.
+  - name: mine
+    description: Mine bitcoin against the 21 pool.
+  - name: buy
+    description: Buy from a machine-payable endpoint.
+  - name: channels
+    description: Manage payment channels with micropayment-channel servers.
+- group: marketplace
+  commands:
+  - name: market
+    description: Interact with the 21 Marketplace.
+  - name: publish
+    description: Publish an app to the 21 Marketplace.
+  - name: search
+    description: Search the 21 Marketplace.
+  - name: rate
+    description: Rate a marketplace app.
+  - name: sell
+    description: Sell web services for micropayments.
+- group: account
+  commands:
+  - name: login
+    description: Log a user into their 21.co account.
+  - name: profile
+    description: Open your 21.co profile in a web browser.
+  - name: inbox
+    description: View notifications from 21.co.
+  - name: join
+    description: Join ZeroTier networks used by the 21 network.
+- group: maintenance
+  commands:
+  - name: doctor
+    description: Diagnose the 21 installation.
+  - name: log
+    description: View a log of 21 CLI events.
+  - name: update
+    description: Update the 21 software.
+  - name: uninstall
+    description: Uninstall 21 and its dependencies.
+  - name: config
+    description: Read and write 21 CLI configuration.
+  - name: help
+    description: Show command help.
+key_flows:
+- name: Get bitcoin on any device
+  steps: [21 login, 21 mine, 21 status, 21 flush]
+- name: Buy from a machine-payable endpoint
+  steps: [21 search, 21 buy]
+- name: Sell a machine-payable endpoint
+  steps: [21 sell, 21 publish, 21 market]

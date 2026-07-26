@@ -1,0 +1,67 @@
+generated: '2026-07-20'
+method: derived
+source: https://github.com/21dotco/two1-python/blob/master/two1/server/rest_client.py
+status: historical
+notes: >-
+  Cross-cutting semantics of the retired api.21.co API, derived from the
+  first-party two1 client library. Recorded for the historical record — the API
+  is no longer reachable.
+authentication:
+  style: bitcoin-wallet message signature in the Authorization header
+  see: authentication/earncom-authentication.yml
+base_url: https://api.21.co
+content_type: application/json
+path_style:
+  trailing_slash: true
+  note: Resource paths consistently end in a trailing slash (e.g. /pool/accounts/).
+idempotency:
+  supported: false
+  note: >-
+    No idempotency key header or parameter appears anywhere in the first-party
+    client. Retries were not made safe by the protocol.
+pagination:
+  style: page-number
+  params: [page]
+  zero_indexed: true
+  note: Marketplace listing endpoints accept ?page=N starting at 0.
+  examples:
+  - GET /market/apps/?page=0
+  - GET /market/users/{username}/apps/?page=0
+action_parameter:
+  style: query-parameter verb
+  param: action
+  note: >-
+    Non-CRUD state changes were modelled as a query parameter on POST rather
+    than a distinct resource.
+  examples:
+  - POST /pool/account/{username}/earnings/?action=flush
+  - POST /pool/account/{username}/notifications/?action=mark_read
+error_envelope:
+  format: custom-json
+  rfc9457: false
+  fields: [error, message]
+  example: '{"error": "invalid_login", "message": "Incorrect username or password"}'
+  note: >-
+    Errors returned a JSON body with an `error` code field and a human-readable
+    `message` field. Codes were either snake_case slugs (invalid_login) or short
+    alphanumerics (TO100, TO200). Not RFC 9457 problem+json.
+  see: errors/earncom-error-codes.yml
+versioning:
+  api: none-documented
+  note: >-
+    No version segment in the path and no version header; the server signalled
+    an out-of-date client by returning HTTP 301, which the client translated
+    into an "update required" error.
+  see: lifecycle/earncom-lifecycle.yml
+request_tracing:
+  request_id_header: null
+  device_binding:
+    header: From
+    value: '<wallet-public-key>@<device-id>'
+rate_limiting:
+  documented: false
+  headers: []
+metadata:
+  supported: false
+field_expansion:
+  supported: false

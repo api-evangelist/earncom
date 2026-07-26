@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: probed
+host: https://earn.com
+result: none
+notes: >-
+  earn.com serves no discovery documents. Every path — including all
+  /.well-known/ locations, /llms.txt and /robots.txt — returns HTTP 301 to
+  https://www.coinbase.com/earn?claim=true. No document returned 200, so there
+  is nothing to save verbatim. The historical API hosts (api.earn.com,
+  api.21.co) do not resolve in DNS.
+documents:
+- path: /.well-known/security.txt
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /.well-known/openid-configuration
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /.well-known/oauth-authorization-server
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /.well-known/api-catalog
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /.well-known/ai-plugin.json
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /llms.txt
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /openapi.json
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+- path: /robots.txt
+  status: 301
+  location: https://www.coinbase.com/earn?claim=true
+unresolvable_hosts:
+- api.earn.com
+- docs.earn.com
+- api.21.co

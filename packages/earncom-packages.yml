@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source: https://pypi.org/project/two1/
+notes: >-
+  The two1 library is the first-party client for 21 Inc / 21.co / Earn.com
+  (author "21", author_email support@21.co, homepage https://21.co). It is still
+  installable from PyPI, but the service it talks to (https://api.21.co) no
+  longer resolves — the company was acquired by Coinbase in April 2018 and the
+  backend was retired. Catalogued as an archived, historical SDK.
+service_status: discontinued
+packages:
+- language: python
+  registry: pypi
+  name: two1
+  url: https://pypi.org/project/two1/
+  install: pip3 install two1
+  official: true
+  status: archived
+  latest_version: 3.10.9
+  first_release: '2016-05-03'
+  last_release: '2018-04-26'
+  release_count: 43
+  license: MIT
+  source: https://github.com/21dotco/two1-python
+  description: >-
+    The 21 command line interface and two1 bitcoin library. HD wallet, bitcoin
+    and crypto primitives, a micropayment-channels client and server, and tools
+    for publishing machine-payable endpoints to the 21 Marketplace.
+- language: docker
+  registry: dockerhub
+  name: 21dotco/two1
+  url: https://hub.docker.com/r/21dotco/two1
+  install: docker pull 21dotco/two1
+  official: true
+  status: archived
+  description: Docker images with the two1 library and 21 CLI pre-installed.
+source_code:
+- url: https://github.com/21dotco/two1-python
+  stars: 367
+  default_branch: master
+  last_push: '2021-04-01'
+github_organizations:
+- login: 21dotco
+  url: https://github.com/21dotco
+  name: 21.co
+  public_repos: 22
+- login: earndotcom
+  url: https://github.com/earndotcom
+  name: Earn.com
+  public_repos: 0

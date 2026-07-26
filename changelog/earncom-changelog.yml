@@ -1,0 +1,47 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/21dotco/two1-python/tree/master/docs/releases
+also: https://pypi.org/project/two1/
+scheme: semver
+current_version: 3.10.9
+status: discontinued
+notes: >-
+  The only dated release record Earn.com / 21.co left behind is the two1 client
+  library changelog (docs/releases/*.md in 21dotco/two1-python, mirrored by PyPI
+  upload dates). There is no live product changelog: the company was acquired by
+  Coinbase in April 2018 and earn.com now redirects to coinbase.com/earn.
+first_release: '2016-05-03'
+last_release: '2018-04-26'
+release_count: 43
+entries:
+- version: 3.10.9
+  date: '2018-04-26'
+  breaking: false
+  note: >-
+    Final published release, dated 2018-04-26 — the same month Coinbase
+    announced the Earn.com acquisition. Effectively the end-of-life release.
+- version: 3.10.8
+  date: '2017-06-01'
+  breaking: false
+- version: 3.10.7
+  date: '2017-05-18'
+  breaking: false
+- version: 3.10.6
+  date: '2017-03-15'
+  breaking: false
+- version: 3.10.5
+  date: '2017-02-15'
+  breaking: false
+- version: 3.10.4
+  date: '2017-01-13'
+  breaking: false
+- version: 3.10.3
+  date: '2016-12-12'
+  breaking: false
+- version: 3.10.2
+  date: '2016-12-03'
+  breaking: false
+- version: 3.0.0
+  date: '2016-05-03'
+  breaking: true
+  note: First release published to PyPI under the 3.x line.

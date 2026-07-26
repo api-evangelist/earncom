@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: probed
+source: live DNS + HTTP probes 2026-07-20; https://github.com/21dotco/two1-python
+status: discontinued
+summary: >-
+  Earn.com (formerly 21e6 / 21 Inc / 21.co) was acquired by Coinbase in April
+  2018. The standalone product and its API were retired and the brand folded
+  into Coinbase Earn. No Earn.com or 21.co API host resolves today; the apex
+  domain issues a blanket 301 to Coinbase.
+versioning:
+  scheme: semver
+  applies_to: two1 client library
+  current: 3.10.9
+  api_versioning: none-documented
+end_of_life:
+  acquired_by: Coinbase
+  acquired_date: '2018-04'
+  reported_terms: USD 120 million (reported)
+  successor: https://www.coinbase.com/earn
+  last_client_release: '2018-04-26'
+  api_shutdown_observed: '2026-07-20'
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: >-
+    No deprecation policy was ever published. The API was withdrawn without an
+    RFC 8594 Sunset/Deprecation signalling path; clients fail at DNS resolution.
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+dead_hosts:
+- host: api.21.co
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: primary API host (TWO1_HOST)
+- host: 21.co
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: www / marketing host (TWO1_WWW_HOST)
+- host: blockchain.21.co
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: blockchain data provider (TWO1_PROVIDER_HOST)
+- host: logger.21.co
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: logging endpoint (TWO1_LOGGER_SERVER)
+- host: docs.earn.com
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: documentation host
+- host: api.earn.com
+  dns: NXDOMAIN
+  probed: '2026-07-20'
+  role: API host
+live_hosts:
+- host: earn.com
+  https: true
+  behavior: blanket HTTP 301 for every path
+  redirect_to: https://www.coinbase.com/earn?claim=true
+  probed: '2026-07-20'
+  dns: Cloudflare (dina/kip.ns.cloudflare.com)
+deprecated_operations: []
