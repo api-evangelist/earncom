@@ -47,6 +47,10 @@ tags:
 - Defunct
 - Messaging
 common:
+- type: IssueTracker
+  url: https://github.com/21dotco/two1-python/issues
+- type: ContributionGuide
+  url: https://github.com/21dotco/two1-python/blob/master/CONTRIBUTING.md
 - type: Website
   url: https://earn.com/
 - type: Successor
