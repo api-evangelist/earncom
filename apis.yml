@@ -35,7 +35,7 @@ x-status: acquired
 x-acquired-by: Coinbase
 x-acquired-date: '2018-04'
 x-successor: https://www.coinbase.com/earn
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-07-20'
 tags:
