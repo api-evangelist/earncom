@@ -21,22 +21,23 @@ accessModel:
   source:
   - authentication
   - security
-  - {url: 'https://earn.com/', status: 301, note: 'declared website redirects to https://www.coinbase.com/earn?claim=true — a different registrable domain (earn.com -> coinbase.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)'}
+  - url: https://earn.com/
+    status: 301
+    note: declared website redirects to https://www.coinbase.com/earn?claim=true — a different registrable
+      domain (earn.com -> coinbase.com), possible rename or acquisition (probed 2026-09-03, roadmap#169)
   generated: '2026-09-03'
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/earncom.png
 name: Earn.com
-description: 'Earn.com was a cryptocurrency startup founded in 2013 as 21e6 and later
-  known as 21 Inc and 21.co, backed by a16z and others, which raised over $116 million.
-  It began as a Bitcoin mining venture selling the 21 Bitcoin Computer, then pivoted
-  to a paid-messaging marketplace where senders paid recipients in cryptocurrency to
-  read and reply to email. Coinbase acquired Earn.com in April 2018 for a reported
-  $120 million, and co-founder Balaji Srinivasan became Coinbase''s first Chief Technology
-  Officer. The standalone Earn.com product was retired and the brand was folded into
-  Coinbase Earn, the learn-and-earn program. As of July 2026 the earn.com domain issues
-  a blanket HTTP 301 redirect for every path to https://www.coinbase.com/earn, and
-  no developer, documentation, or API subdomain resolves. Earn.com therefore has no
-  independent API surface; any remaining API capability lives under Coinbase.'
+description: Earn.com was a cryptocurrency startup founded in 2013 as 21e6 and later known as 21 Inc and
+  21.co, backed by a16z and others, which raised over $116 million. It began as a Bitcoin mining venture
+  selling the 21 Bitcoin Computer, then pivoted to a paid-messaging marketplace where senders paid recipients
+  in cryptocurrency to read and reply to email. Coinbase acquired Earn.com in April 2018 for a reported
+  $120 million, and co-founder Balaji Srinivasan became Coinbase's first Chief Technology Officer. The
+  standalone Earn.com product was retired and the brand was folded into Coinbase Earn, the learn-and-earn
+  program. As of July 2026 the earn.com domain issues a blanket HTTP 301 redirect for every path to https://www.coinbase.com/earn,
+  and no developer, documentation, or API subdomain resolves. Earn.com therefore has no independent API
+  surface; any remaining API capability lives under Coinbase.
 url: https://raw.githubusercontent.com/api-evangelist/earncom/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -44,13 +45,13 @@ x-backed-by:
 - a16z
 x-tier: stub
 x-tier-reason: acquired-no-api-surface
-x-status: acquired
+x-status: defunct
 x-acquired-by: Coinbase
-x-acquired-date: '2018-04'
+x-acquired-date: 2018-04
 x-successor: https://www.coinbase.com/earn
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-09-15'
 tags:
 - Company
 - Cryptocurrency
@@ -92,13 +93,6 @@ common:
   url: conventions/earncom-conventions.yml
 - type: ErrorCatalog
   url: errors/earncom-error-codes.yml
-# No pointer emitted for well-known/earncom-well-known.yml: the probe found no
-# discovery documents (every path 301s to Coinbase), so there is no WellKnown
-# catalog to advertise. The artifact is retained as an honest probe record.
-# Deliberately absent, because Earn.com genuinely has none of these any more:
-# StatusPage, Deprecation, Idempotency, Security, Compliance, TrustCenter,
-# MCPServer, AgentSkill, AsyncAPI, Webhooks, Sandbox, Postman, Pricing, SignUp,
-# TermsOfService, PrivacyPolicy, DeveloperPortal, Documentation, APIReference.
 apis: []
 x-enrichment:
   date: '2026-07-20'
